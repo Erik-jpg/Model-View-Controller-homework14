@@ -29,4 +29,7 @@ submitBtnEl.addEventListener('click',async () => {
     //   console.log(userName.value);
     window.location.href = `/${username.value}`;
     });
+
     
+    
+

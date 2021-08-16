@@ -10,5 +10,6 @@ router.get('/index/:userName/:password', (req, res) =>{
 
 router.post('db/models/schema', (req, res) =>{
     // post userName and password
+    res.render('homepage')
 })
 module.exports = router;

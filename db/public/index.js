@@ -25,7 +25,8 @@ submitBtnEl.addEventListener('click',async () => {
       } catch (err) {
         throw new Error(err);
       }
-      console.log(password.value);
-      console.log(userName.value);
+    //   console.log(password.value);
+    //   console.log(userName.value);
+    window.location.href = `/${username.value}`;
     });
     

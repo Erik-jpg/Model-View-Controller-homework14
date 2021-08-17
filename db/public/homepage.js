@@ -3,5 +3,5 @@ const
 const validateUser = async (username) => {
     const User = await User.findOne({where: { username: req.params.username 
     }}),
-    const validation = await user.validatePassword(req.body.password);
+    const validatePending = await user.validatePassword(req.body.password);
 } 

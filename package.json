@@ -4,7 +4,6 @@
   "description": "This is for Homework 014. In this homework we have to build a CMS-style blog site, similar to a Wordpress site. This homework will also use technologies such as: Heroku, Handlebars.js, Sequelize, and express-sessions. This work will also follow the MVC paradigm in its architectural structure.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
@@ -21,6 +20,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.1",
+    "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",

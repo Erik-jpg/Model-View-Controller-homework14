@@ -1,8 +1,8 @@
 const userName = document.getElementById('userName');
 const password = document.getElementById('password');
-
 const submitBtnEl = document.createElement('submit-btn');
 
+handlebars.registerHelper()
 
 submitBtnEl.addEventListener('click',async () => {
     const body ={

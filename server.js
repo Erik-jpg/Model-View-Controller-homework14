@@ -9,7 +9,7 @@ const hbs = exphbs.create({});
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const { strict } = require('assert');
 const path = require('path');
-const PORT = 3030;
+const PORT = 5000;
 const {urlencoded} = require('body-parser');
 
 const sess = {
@@ -35,7 +35,7 @@ app.use(router);
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(urlencoded({extended:true}));
 
-sequelize.sync({ force: false })
+sequelize.sync({ force: true })
   .then(() => {
     app.listen(PORT, () => console.log(`Listening on ${PORT}`));
   });

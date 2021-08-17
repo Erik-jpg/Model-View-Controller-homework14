@@ -12,6 +12,8 @@ User.init(
     {
         username: DataTypes.STRING,
         password: DataTypes.STRING,
+        blogs: DataTypes.STRING,
+        comments: DataTypes.STRING
     },
     { sequelize, modelName: 'user' }
 );

@@ -10,7 +10,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 
-router.get('/', (req, res) => {
+router.get('/users', (req, res) => {
     User.findAll()
     .then(users => {
     res.render('users', {
@@ -33,6 +33,38 @@ router.get('comments', exphbs({ defaultLayout: 'comments.handlebars' }));
         res.render('comments', {comments
         });
     });
+
+    //pulling data from users
+    let { username, email } = userData;
+//insert into table
+    blog.create({ 
+        username,
+        password,
+        blogs,
+        comments
+    })
+
+
+    //pulling data out of the object
+    let { Title, Date, Content } = blogData;
+//insert into blogTable
+blog.create({ 
+    username,
+    Title,
+    Date,
+    content
+})
+
+    //pulling data form comments
+    let { Title, Date, Content } = commentsData;
+//insert into commentsTable
+blog.create({ 
+    username,
+    Title,
+    Date,
+    comments
+})
+
 
 router.use('/', htmlRoutes);
 router.use('/api', apiRoutes);

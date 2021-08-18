@@ -1,5 +1,5 @@
-const { Sequelize, Model, DataTypes } = require('sequelize');
-const Sequelize = require('../connection');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../connection');
 
 
 class Comments extends Model {
@@ -35,7 +35,7 @@ Comments.init(
         }
     }
 },
-{ Sequelize, modelName: 'comments', freezeTableName:true }
+{ sequelize, modelName: 'comments', freezeTableName:true }
     );
 
 // Comments.addHook('beforeCreate', async (user) => {

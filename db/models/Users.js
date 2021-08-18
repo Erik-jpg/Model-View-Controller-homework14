@@ -2,32 +2,32 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../connection');
 const bcrypt = require('bcrypt');
 
-class User extends Model {
+class Users extends Model {
     validatePassword(password) {
         return bcrypt.compare(password, this.password);
         
     }
 }
-User.init(
+Users.init(
     {
-        username:{ 
+        username: { 
             type: DataTypes.STRING, 
             allowNull:false, 
             unique:true 
         },
-        password:{ 
+        password: { 
             type: DataTypes.STRING,
              allowNull:false
         },
     },
-    { Sequelize, modelName: 'users', freezeTableName: true }
+    { sequelize, modelName: 'Users', freezeTableName: true }
 );
 
-User.beforeCreate(async (user) => {
+Users.beforeCreate(async (Users) => {
     bcryptedPassword = await user.bcrypt.hash(user.dataValues.password, 10);
     console.log(err);
 });
-users.password = bcryptedPassword;
+ bcryptedPassword = Users.password;
 
 module.exports = Users;
 

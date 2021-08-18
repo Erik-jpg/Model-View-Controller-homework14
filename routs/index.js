@@ -4,10 +4,13 @@ const router = express.Router();
 const apiRoutes = require('./apiRouts');
 const htmlRoutes = require('./htmlRouts');
 const User = require('../db/models/Users');
+const Comments = require('../db/models/Comments');
+const Blog = require('../db/models/Blogs');
 const app = express();
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
+//({ defaultLayout: 'main' }));
+
+
 
 
 router.get('/users', (req, res) => {
@@ -20,50 +23,50 @@ router.get('/users', (req, res) => {
     .catch(err => console.log(err));
 });
 
-router.get('blogs', exphbs({ defaultLayout: 'blog.handlebars' }));
-    User.findAll(blog)
+router.get('/blogs', exphbs({ defaultLayout: 'blog.handlebars' }));
+    User.findAll()
     .then(blogs => {
-        res.render('blogs', {blog
+        res.render('blogs', {Blog
         });
     })
 
-router.get('comments', exphbs({ defaultLayout: 'comments.handlebars' }));
-    User.findAll(comments)
+router.get('/comments', exphbs({ defaultLayout: 'comments.handlebars' }));
+    User.findAll()
     .then(comments => {
-        res.render('comments', {comments
+        res.render('comments', {Comments
         });
     });
 
     //pulling data from users
-    let { username, email } = userData;
+    // let { username, password, usersBlog, usersComments } = userData;
 //insert into table
-    blog.create({ 
-        username,
-        password,
-        blogs,
-        comments
-    })
+    // User.create({ 
+    //     username,
+    //     password,
+    //     usersBlogs,
+    //     usersComments
+    // })
 
 
     //pulling data out of the object
-    let { Title, Date, Content } = blogData;
+    // let { Title, Date, Content } = blogData;
 //insert into blogTable
-blog.create({ 
-    username,
-    Title,
-    Date,
-    content
-})
+// Blog.create({ 
+//     username,
+//     Title,
+//     Date,
+//     content
+// })
 
     //pulling data form comments
-    let { Title, Date, Content } = commentsData;
+    // let { commentsTitle, commentsDate, commentsContent } = commentsData;
 //insert into commentsTable
-blog.create({ 
-    username,
-    Title,
-    Date,
-    comments
-})
+// Comments.create({ 
+//     username,
+//     commentsTitle,
+//     commentsDate,
+//     commentsContents
+// })
 
 
 router.use('/', htmlRoutes);

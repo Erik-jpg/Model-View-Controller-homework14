@@ -1,26 +1,33 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../connection');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
-class Blogs extends Model {
-    validatePassword(password) {
-        return bcrypt.compare(password, this.password);
-        
-    }
-}
+class Blogs extends Model {}
 Blogs.init(
     {
-        username: DataTypes.STRING,
-        date: DataTypes.INTEGER,
-        blogs: DataTypes.STRING,
-        comments: DataTypes.STRING
+        title:{ 
+            type: DataTypes.STRING,
+            allowNull: false 
+        },
+        date: { 
+            timestamp:true, 
+            updatedAt:false, 
+            createdAt: 'date'
+        },
+        content: {
+            type: DataTypes.STRING,
+             allowNull: false
+            },
+        userId: { 
+            type: DataTypes.INTEGER,
+             references: {
+                 model: 'user',
+                  key: 'id'
+                }
     },
-    { sequelize, modelName: 'user' }
-);
+},
 
-Blogs.addHook('beforeCreate', async (user) => {
-    user.password = await bcrypt.hash(user.dataValues.password, 10);
-    return user;
-})
+    { sequelize, modelName: 'Blogs', freezeTableName: true }
+);
 
 module.exports = Blogs;

@@ -3,12 +3,14 @@
         "username": "me",
         "password": "MeMe",
         "blogs": ["The first blog", "The second blog", "The third blog"],
-        "comments": ["The first comment", "The second comment", "The third comment"]
+        "comments": ["The first comment", "The second comment", "The third comment"],
+        "userId": "01"
     },
     {
         "username": "Memeasaurus.Rex",
         "password": "Roooaar!",
         "blogs": ["Dino's first blog", "Dino's second blog", "Dino's third blog"],
-        "comments": ["Dino's first comment", "Dino's second comment", "Dino's third comment"]
+        "comments": ["Dino's first comment", "Dino's second comment", "Dino's third comment"],
+        "userId": "02"
     }
 ]

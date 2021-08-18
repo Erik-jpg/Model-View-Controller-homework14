@@ -10,18 +10,24 @@ class User extends Model {
 }
 User.init(
     {
-        username: DataTypes.STRING,
-        password: DataTypes.STRING,
-        blogs: DataTypes.STRING,
-        comments: DataTypes.STRING
+        username:{ 
+            type: DataTypes.STRING, 
+            allowNull:false, 
+            unique:true 
+        },
+        password:{ 
+            type: DataTypes.STRING,
+             allowNull:false
+        },
     },
-    { sequelize, modelName: 'user' }
+    { Sequelize, modelName: 'users', freezeTableName: true }
 );
 
-User.addHook('beforeCreate', async (user) => {
-    user.password = await bcrypt.hash(user.dataValues.password, 10);
-    return user;
-})
+User.beforeCreate(async (user) => {
+    bcryptedPassword = await user.bcrypt.hash(user.dataValues.password, 10);
+    console.log(err);
+});
+users.password = bcryptedPassword;
 
-module.exports = User;
+module.exports = Users;
 

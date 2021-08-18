@@ -29,7 +29,8 @@ const sess = {
 
 
 const app = express();
-
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(router);
 app.use(express.static(path.join(__dirname, '/public')));

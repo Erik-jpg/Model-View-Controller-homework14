@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../connection');
+const sequelize = require('../config/connection');
 
 
 class Comments extends Model {
@@ -11,6 +11,7 @@ class Comments extends Model {
 Comments.init(
     {
         date: {
+            type: DataTypes.STRING,
             timestamp:true,
             updatedAt: false,
             createdAt: 'date'

@@ -10,6 +10,7 @@ Blogs.init(
             allowNull: false 
         },
         date: { 
+            type: DataTypes.STRING,
             timestamp:true, 
             updatedAt:false, 
             createdAt: 'date'

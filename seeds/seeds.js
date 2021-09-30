@@ -1,7 +1,7 @@
-const { Blogs, Users, Comments } = require('../db/models');
-const sequelize = require('../db/connection');
-const blogsSeeds = require('./posts.json');
-const usersSeeds = require('./users.json');
+const { Blogs, Users, Comments } = require('../models');
+const sequelize = require('../config/connection');
+const blogsSeeds = require('./apiBlogs.json');
+const usersSeeds = require('./apiUsers.json');
 const commentsSeeds = require('./comments.json');
 
 

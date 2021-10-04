@@ -19,12 +19,20 @@ Users.init(
             type: DataTypes.STRING,
              allowNull:false
         },
+        id: { 
+            type: DataTypes.INTEGER, 
+            primaryKey:true,
+            allowNull:false, 
+            autoIncrement: true,
+
+        },
     },
-    { sequelize, modelName: 'Users', freezeTableName: true }
+    { sequelize, modelName: 'user', freezeTableName: true }
+    
 );
 
 Users.beforeCreate(async (Users) => {
-    bcryptedPassword = await user.bcrypt.hash(user.dataValues.password, 10);
+    bcryptedPassword = await bcrypt.hash(Users.dataValues.password, 10);
     console.log(err);
 });
  bcryptedPassword = Users.password;

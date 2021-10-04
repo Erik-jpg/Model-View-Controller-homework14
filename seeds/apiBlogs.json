@@ -1,14 +1,12 @@
 [
     {
-        "Title": "The first blog",
-        "Date": "08/17/2021",
-        "Content": "This is a blog. What is a blog?",
-        "userId" : "01"
+        "title": "The first blog",
+        "content": "This is a blog. What is a blog?",
+        "userId" : 2
 },
     {
-        "Title": "The second blog",
-        "Date":"08/17/2021",
-        "Content":"This is the second blog, and how to blog.",
-        "userId" : "01"
+        "title": "The second blog",
+        "content":"This is the second blog, and how to blog.",
+        "userId" : 1
     }
 ]

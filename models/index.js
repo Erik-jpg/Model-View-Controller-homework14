@@ -3,27 +3,27 @@ const Users = require('./Users.js');
 const Comments = require('./Comments.js');
 
 Users.hasMany(Blogs, {
-  foreignKey: 'users_id',
+  foreignKey: 'userId',
 });
 
 Users.hasMany(Comments, {
-  foreignKey: 'users_id',
+  foreignKey: 'userId',
 });
 
 Blogs.belongsTo(Users, {
-  foreignKey: 'users_id',
+  foreignKey: 'userId',
 });
 
 Blogs.hasMany(Comments, {
-    foreignKey: 'Blogs_id'
+    foreignKey: 'blogsId'
 });
 
 Comments.belongsTo(Blogs, {
-    foreignKey: 'Blogs_id'
+    foreignKey: 'blogsId'
 });
 
 Comments.belongsTo(Users, {
-    foreignKey: 'users_id'
+    foreignKey: 'userId'
 });
 
 module.exports = { Users, Blogs, Comments };

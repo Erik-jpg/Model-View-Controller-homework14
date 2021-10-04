@@ -6,7 +6,7 @@ const htmlRoutes = require("./htmlRouts");
 const { Users, Blogs, Comments } = require("../models");
 // const Comments = require('../models/Comments');
 // const Blog = require('../models/Blogs');
-const index = require("../models/");
+const index = require("../models");
 const app = express();
 
 //({ defaultLayout: 'main' }));

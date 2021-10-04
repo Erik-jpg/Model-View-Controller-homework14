@@ -1,17 +1,20 @@
 [
     {
-        "Date": "08/17/2021",
-        "Content": "YES! I totally agree!",
-        "userId": "02"
+        
+        "content": "YES! I totally agree!",
+        "userId": 2,
+        "blogsId": 1
     },
     {
-        "Date": "08/17/20",
-        "Content": "But what about Ipsem?",
-        "userId": "02"
+        
+        "content": "But what about Ipsem?",
+        "userId": 1,
+        "blogsId": 2
     },
     {
-    "Date": "08/17/20",
-    "Content": "Checkout my most recent blog, I go over this very thing!",
-    "userId": "02"
+    
+    "content": "Checkout my most recent blog, I go over this very thing!",
+    "userId": 2,
+    "blogsId": 1
     }
 ]

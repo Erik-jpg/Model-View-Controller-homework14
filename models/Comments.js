@@ -10,12 +10,12 @@ class Comments extends Model {
 }
 Comments.init(
     {
-        date: {
-            type: DataTypes.STRING,
-            timestamp:true,
-            updatedAt: false,
-            createdAt: 'date'
-        },
+        // date: {
+        //     type: DataTypes.STRING,
+        //     timestamp:true,
+        //     updatedAt: false,
+        //     createdAt: 'date'
+        // },
         content: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -28,13 +28,20 @@ Comments.init(
             key: 'id'
         }
     },
-    BlogsId: {
+    blogsId: {
         type: DataTypes.INTEGER,
         references: {
             model: 'Blogs', 
             key: 'id'
         }
-    }
+    },
+    id: { 
+        type: DataTypes.INTEGER, 
+        primaryKey:true,
+        allowNull:false, 
+        autoIncrement: true,
+
+    },
 },
 { sequelize, modelName: 'comments', freezeTableName:true }
     );

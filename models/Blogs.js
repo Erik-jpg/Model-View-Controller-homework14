@@ -9,11 +9,11 @@ Blogs.init(
             type: DataTypes.STRING,
             allowNull: false 
         },
-        date: { 
-            type: DataTypes.STRING,
-            timestamp:true, 
-            updatedAt:false, 
-            createdAt: 'date'
+        id: { 
+            type: DataTypes.INTEGER, 
+            primaryKey:true,
+            allowNull:false, 
+            autoIncrement: true,
         },
         content: {
             type: DataTypes.STRING,

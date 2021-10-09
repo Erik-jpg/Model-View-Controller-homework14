@@ -14,22 +14,25 @@ const app = express();
 router.get("/users", (req, res) => {
   Users.findAll()
     .then((users) => {
-      res.render("users", {
-        users,
+      res.render("home-page", {
+        Users,
       });
     })
     .catch((err) => console.log(err));
 });
 
-router.get("/blogs", exphbs({ defaultLayout: "blog.handlebars" }));
-Users.findAll().then((blogs) => {
-  res.render("blogs", { Blog });
-});
 
-router.get("/comments", exphbs({ defaultLayout: "comments.handlebars" }));
+router.get("/blogs", (req, res) => {
+// exphbs({ defaultLayout: "blog.handlebars" }));
+Users.findAll().then((blogs) => {
+  res.render("blogs", { Blogs });
+})});
+
+router.get("/comments", (req, res) => {
+// exphbs({ defaultLayout: "comments.handlebars" }));
 Users.findAll().then((comments) => {
   res.render("comments", { Comments });
-});
+})});
 
 //pulling data from users
 // let { username, password, usersBlog, usersComments } = userData;

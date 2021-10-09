@@ -11,7 +11,7 @@ Users.hasMany(Comments, {
 });
 
 Blogs.belongsTo(Users, {
-  foreignKey: 'userId',
+  foreignKey: 'UsersId',
 });
 
 Blogs.hasMany(Comments, {
@@ -23,7 +23,7 @@ Comments.belongsTo(Blogs, {
 });
 
 Comments.belongsTo(Users, {
-    foreignKey: 'userId'
+    foreignKey: 'UsersId'
 });
 
 module.exports = { Users, Blogs, Comments };

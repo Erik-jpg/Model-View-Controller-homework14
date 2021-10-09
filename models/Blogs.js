@@ -22,7 +22,7 @@ Blogs.init(
         userId: { 
             type: DataTypes.INTEGER,
              references: {
-                 model: 'user',
+                 model: 'Users',
                   key: 'id'
                 }
     },

@@ -11,7 +11,7 @@ const app = express();
 
 //({ defaultLayout: 'main' }));
 
-router.get("/users", (req, res) => {
+router.get("/", (req, res) => {
   Users.findAll()
     .then((users) => {
       res.render("home-page", {
@@ -21,6 +21,15 @@ router.get("/users", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+router.get("/sign-in", (req, res) => {
+  Users.findOne()
+    .then((users) => {
+      res.render("home-page", {
+        Users,
+      });
+    })
+    .catch((err) => console.log(err));
+});
 
 router.get("/blogs", (req, res) => {
 // exphbs({ defaultLayout: "blog.handlebars" }));

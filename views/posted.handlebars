@@ -1,33 +1,35 @@
+
 {{#if loggedIn}}
 <div class="row" id="posted-blogs">
     <div class="col-md-6 jumbotron" id='view-past-blogs'>
-        <h2 class="text-center text-weight-bold" id="display-blog-titles">{{post.title}}</h2>
-        <p>{{post.content}}</p>
+        <h2 class="text-center text-weight-bold" id="display-blog-titles">{{blogs.title}}</h2>
+        <p>{{blogs.content}}</p>
         <h4 class="text-center text-weight-bold" id="display-userName">posted by {{post.user}}</h4>
     </div>
 </div>
 
 <div class="row">
-<div class="text-center text-weight-bold" id="display">
-    <div class="col-md-6" id="display-comments">
-        {{#each post.comment}}
-        <div class="container-fluid">
-            <p>{{this.post.content}}</p>
+    <div class="text-center text-weight-bold" id="display">
+        <div class="col-md-6" id="display-comments">
+            {{#each post.comment}}
+            <div class="container-fluid">
+                <p>{{this.post.content}}</p>
+            </div>
+            {{/each}}
         </div>
-        {{/each}}
     </div>
-</div>        
 </div>
 
 <div class="row">
     <div class="col-md-6">
         <div class="container=fluid">
-            <input type="text" class="form-control" aria-describedby="sizing-lg" id="text-comments" placeholder="Write comments here">
+            <input type="text" class="form-control" aria-describedby="sizing-lg" id="text-comments"
+                placeholder="Write comments here">
             <button class="bi bi-text-left" id="comment-submit">Submit Comment</button>
         </div>
     </div>
 </div>
 {{else}}
-<a href="/">login</a>
+<a href="/signin">login</a>
 {{/if}}
-<script src="../public/index.js"></script>
+<script src="./index.js"></script>

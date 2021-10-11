@@ -3,12 +3,13 @@ const session = require('express-session');
 const router = require('./routes');
 const sequelize = require('./config/connection');
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
+
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const { strict } = require('assert');
+// const { strict } = require('assert');
 const path = require('path');
 const PORT = 5000;
-const {urlencoded} = require('body-parser');
+const app = express();
+// const {urlencoded} = require('body-parser');
 
 const sess = {
   secret: 'Super secret secret',
@@ -25,18 +26,22 @@ const sess = {
   }),
 };
 
+app.use(session(sess));
+const hbs = exphbs.create({});
 
-const app = express();
+app.use(express.json());
+app.use(express.static(path.join(__dirname + '/public')));
+app.use(express.urlencoded({extended:true}));
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
-app.use(express.json());
+
 app.use(router);
-app.use(express.static(path.join(__dirname, '/public')));
-app.use(urlencoded({extended:true}));
 
 
 
-sequelize.sync({ force: true })
+
+sequelize.sync({ force: false })
   .then(() => {
     app.listen(PORT, () => console.log(`Listening on ${PORT}`));
   });

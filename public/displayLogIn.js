@@ -76,4 +76,4 @@ const displayLogIn = (event) => {
             computeLogin(usernameInput.value, passwordInput.value);
         });
     };
-export default displayLogIn;
+module.exports = displayLogIn;

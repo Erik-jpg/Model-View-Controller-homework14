@@ -1,5 +1,5 @@
-const selectLoginElement = document.getElementById('choose-login');
-const selectCreateElement = document.getElementById('choose-create');
+selectLoginElement = document.getElementById('choose-login');
+selectCreateElement = document.getElementById('choose-create');
 const displayCreateUsers = (event) => {
     selectLoginElement.parentNode.removeChild(selectLoginElement);
     selectCreateElement.parentNode.removeChild(selectCreateElement);
@@ -81,4 +81,4 @@ const displayCreateUsers = (event) => {
         computeCreateUser(usernameInput.value, passwordInput.value);
     });
 };
-export default displayCreateUsers;
+module.exports = displayCreateUsers;

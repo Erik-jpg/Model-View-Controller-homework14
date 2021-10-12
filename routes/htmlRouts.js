@@ -95,16 +95,16 @@ router.get("/signin", (req, res) => {
     res.render("sign-in");
 });
 
-router.get("/comments/:commentId", async (req, res) => {
-    const dbComments = await Comments.findOne({
-        where: {
-            id: req.params.commentId,
-        },
-        include: [{ model: Users }, { model: Comment }],
-    }).catch((error) => {
-        res.status(500).json("Sorry, We could not save your comments.");
-    });
-});
+// router.get("/comments/:commentId", async (req, res) => {
+//     const dbComments = await Comments.findOne({
+//         where: {
+//             id: req.params.commentId,
+//         },
+//         include: [{ model: Users }, { model: Comment }],
+//     }).catch((error) => {
+//         res.status(500).json("Sorry, We could not save your comments.");
+//     });
+// });
 
 // router.get('/index/:userName/:username/dashboard', (req, res) =>{
 //     res.sendFile(path.join(_dirname, '../views/layout/dashboard'));

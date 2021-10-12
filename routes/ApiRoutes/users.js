@@ -44,6 +44,8 @@ router.post('/sign-in/:username', async (req, res) =>{
     }
 });
 
+
+// createUsers route
 router.get('/', async (req, res) => {
     const users = await Users.findAll().catch((error) =>{
         res.status(500).json('Sorry but we lost little Timmy, please try again.');

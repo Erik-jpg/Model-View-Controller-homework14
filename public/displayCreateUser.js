@@ -1,9 +1,9 @@
-selectLoginElement = document.getElementById('choose-login');
-selectCreateElement = document.getElementById('choose-create');
+getLoginElement = document.getElementById('choose-login');
+getCreateElement = document.getElementById('choose-create');
 const displayCreateUsers = (event) => {
-    selectLoginElement.parentNode.removeChild(selectLoginElement);
-    selectCreateElement.parentNode.removeChild(selectCreateElement);
-
+   usernameLabel.textContent = '';
+   passwordLabel.textContent = '';
+   
     const columnsDiv = document.createElement('div');
     columnsDiv.classList.add('columns');
     const singleColumnDiv = document.createElement('div');

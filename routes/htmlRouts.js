@@ -1,5 +1,5 @@
 // const express = require("express");
-const router = ('express').Router();
+const router = require('express').Router();
 const { Users, Blogs, Comments } = require("../models");
 const withCookie = require('../config/session');
 

@@ -1,5 +1,7 @@
-const selectLoginElement = async (event) => {
-    event.preventDefault();
+
+
+const selectLoginElement = async (e) => {
+    e.preventDefault();
 
     const email = document.querySelector('email-login').value.trim();
     const password = document.querySelector('password-login').value.trim();
@@ -11,14 +13,14 @@ const selectLoginElement = async (event) => {
             headers: { 'Content-Type': 'application/json'},
         });
         if (response.ok) {
-            document.location.replace('/profile');
+            document.location.render('/posted');
         } else {
             alert(response.statusText);
         }
     }
 };
-const selectSignupElement = async (event) => {
-    event.preventDefault();
+const selectSignupElement = async (e) => {
+    e.preventDefault();
 
     const name = document.querySelector('#name-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
@@ -30,15 +32,15 @@ const selectSignupElement = async (event) => {
             headers: { 'Content-type': 'application/json'},
         });
         if (response.ok) {
-            document.location.replace('/profile');
+            document.location.render('/posted');
         } else {
             alert(response.statusText);
         }
     }
 };
 
-document.querySelector('.login-form').addEventListener('submit', selectLoginElement);
-document.querySelector('.signup-form').addEventListener('submit', selectSignupElement);
+document.querySelector('#login').addEventListener('click', selectLoginElement);
+document.querySelector('#singUp').addEventListener('click', selectSignupElement);
 //         if (body.username.length && body.password.length) {
 //             const response = await fetch(`/api/users/sign-in/${username}`, {
 //                 method: 'POST',

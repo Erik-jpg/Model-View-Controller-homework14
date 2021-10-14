@@ -4,12 +4,13 @@ selectCreateElement = document.getElementById('selectCreate')
 // import displayLogIn from "./displayLogIn"
 
 
-selectLoginElement.addEventListener(
+loginSubmit.addEventListener(
     'click', 
     displayLogIn,
     console.log('Login selected')
     );
-selectCreateElement.addEventListener(
+    
+    singUpSubmit.addEventListener(
     'click', 
     displayCreateUsers,
     console.log('Create user selected')

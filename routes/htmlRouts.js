@@ -1,6 +1,7 @@
-const express = require("express");
-const router = express.Router();
+// const express = require("express");
+const router = ('express').Router();
 const { Users, Blogs, Comments } = require("../models");
+const withCookie = require('../config/session');
 
 router.get('/', async (req, res) => {
     try {
@@ -22,9 +23,15 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get("/:userName/:password", async (req, res) => {
+router.get("/blogs/:id", async (req, res) => {
     try {
-        const username = req.params.username;
+        const blogsData = await Blogs.findByPk(req.params.username, {
+            include: [{
+                model: Users,
+                attributes: ['name'],
+        },
+    ],
+});
         const dbComments = await Comments.findAll({
             include: {
                 model: Users,
@@ -36,7 +43,7 @@ router.get("/:userName/:password", async (req, res) => {
     }
     });
 
-
+// router.get('/')
 
 //     const user = await Users.findOne({
 //         where: { username: req.params.username },

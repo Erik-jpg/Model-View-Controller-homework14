@@ -13,7 +13,7 @@ const selectLoginElement = async (e) => {
             headers: { 'Content-Type': 'application/json'},
         });
         if (response.ok) {
-            document.location.render('/posted');
+            document.location.replace('/posted');
         } else {
             alert(response.statusText);
         }
@@ -32,7 +32,7 @@ const selectSignupElement = async (e) => {
             headers: { 'Content-type': 'application/json'},
         });
         if (response.ok) {
-            document.location.render('/posted');
+            document.location.replace('/posted');
         } else {
             alert(response.statusText);
         }

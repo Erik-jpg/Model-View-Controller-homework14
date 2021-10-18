@@ -27,6 +27,14 @@ router.get('/dashboard', async (req, res) => {
     try {
         // query all blogs by           it is either userId
         const blogsData = await Blogs.findAll({ where: {userId: req.session.userId}})
+        const blogs = blogsData.map((blog) =>
+            blog.get({ plain: true })
+        )
+        console.log(blogs);
+        res.render('home-page', {
+            blogs,
+            loggedIn: req.session.loggedIn
+        })
         res.render('dashboard')
     } catch (error) {
         console.log(error);

@@ -1,10 +1,10 @@
 
 
-const selectLoginElement = async (e) => {
+const createLoginFeature = async (e) => {
     e.preventDefault();
 
-    const email = document.querySelector('email-login').value.trim();
-    const password = document.querySelector('password-login').value.trim();
+    const email = document.querySelector('#email-login').value.trim();
+    const password = document.querySelector('#password-login').value.trim();
 
     if(email && password) {
         const response = await fetch('/api/users/signin', {
@@ -13,20 +13,20 @@ const selectLoginElement = async (e) => {
             headers: { 'Content-Type': 'application/json'},
         });
         if (response.ok) {
-            document.location.replace('/posted');
+            document.location.replace('/dashboard');
         } else {
             alert(response.statusText);
         }
     }
 };
-const selectSignupElement = async (e) => {
+const createSignupFeature = async (e) => {
     e.preventDefault();
 
     // const name = document.querySelector('#name-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
-    if(email && email && password) {
-        const response = await fetch('/api/users', {
+    if(email && password) {
+        const response = await fetch('/api/users/', {
             method: "POST",
             body: JSON.stringify({ email, password }),
             headers: { 'Content-type': 'application/json'},
@@ -34,13 +34,14 @@ const selectSignupElement = async (e) => {
         if (response.ok) {
             document.location.replace('/');
         } else {
+            console.log(response);
             alert(response.statusText);
         }
     }
 };
 
-document.querySelector('#login').addEventListener('click', selectLoginElement);
-document.querySelector('#singUp').addEventListener('click', selectSignupElement);
+document.querySelector('#login').addEventListener('click', createLoginFeature);
+document.querySelector('#signUp').addEventListener('click', createSignupFeature);
 //         if (body.username.length && body.password.length) {
 //             const response = await fetch(`/api/users/sign-in/${username}`, {
 //                 method: 'POST',

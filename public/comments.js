@@ -23,5 +23,5 @@ const computeComments = async (comment, userId) => {
 };
 
 commentBtn.addEventListener('click', () => {
-    computeComments(commentText.value, commentBtn.dataset.value)
+    computeComments(commentText.value);
 });

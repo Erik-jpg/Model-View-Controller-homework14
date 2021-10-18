@@ -3,7 +3,7 @@ const session = require('express-session');
 const router = require('./routes');
 const sequelize = require('./config/connection');
 const exphbs = require('express-handlebars');
-
+// 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // const { strict } = require('assert');
 const path = require('path');
@@ -17,7 +17,7 @@ const sess = {
     maxAge: 3600,
     httpOnly: true,
     secure: false,
-    sameSite: 'strict',
+    sameSite: 'lax',
   },
   resave: false,
   saveUninitialized: true,

@@ -5,14 +5,17 @@ const router = require('express').Router();
 
 // create user
 router.post('/', async (req, res) => {
+    console.log('made it to backend post');
     try {
         const userData = await Users.create(req.body);
+        console.log(userData)
         req.session.save(() => {
             req.session.userId = userData.id;
             req.session.loggedIn = true;
             res.status(200).json(userData);
         });
     } catch (error) {
+        console.log(error);
         res.status(400).json(error);
     }
 });
@@ -20,7 +23,7 @@ router.post('/', async (req, res) => {
 // logging in
 router.post('/signin', async (req, res) => {
     try {
-    const userData = await Users.findOne({ where: { email: req.params.email } });
+    const userData = await Users.findOne({ where: { email: req.body.email } });
     
     if(!userData) {
         console.log("line 26 users.js ", error);
@@ -37,6 +40,7 @@ router.post('/signin', async (req, res) => {
         req.session.userId = userData.id;
         req.session.loggedIn = true;
         res.json({ user: userData, message: `Welcome back: ${Users}!`});
+    
     }); 
 }catch (error) {
         res.status(400).json(error);

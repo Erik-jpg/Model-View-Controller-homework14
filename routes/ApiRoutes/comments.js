@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const { Blogs, Users, Comments } = require('../../models');
 const withCookie = require('../../config/session');
+// const session = require('express-session');
 
-
-router.post('/:commentId', withCookie, async (req, res) => {
+router.post('/posted', withCookie, async (req, res) => {
     try {
         const comment = await Comments.create({
             ...req.body,

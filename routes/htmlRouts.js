@@ -23,9 +23,19 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get("/blogs/:id", async (req, res) => {
+router.get('/dashboard', async (req, res) => {
     try {
-        const blogsData = await Blogs.findByPk(req.params.username, {
+        // query all blogs by           it is either userId
+        const blogsData = await Blogs.findAll({ where: {userId: req.session.userId}})
+        res.render('dashboard')
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+router.get("/posted/:id", async (req, res) => {
+    try {
+        const blogsData = await Blogs.findByPk(req.params.id, {
             include: [{
                 model: Users,
                 attributes: ['name'],
@@ -43,7 +53,25 @@ router.get("/blogs/:id", async (req, res) => {
     }
     });
 
-// router.get('/')
+    router.get('/posted', async (req, res) => {
+        try {
+            res.render('posted')
+            const commentsData = await Comments.findAll({ where: {userId: req.session.userId}});
+
+        } catch (error) {
+            console.log(error);
+        }
+    })
+
+
+    router.get("/signin", (req, res) => {
+        res.render("sign-in");
+    });
+
+    router.get('/logout' , async (req, res) => {
+        res.render('sign-in');
+    })
+
 
 //     const user = await Users.findOne({
 //         where: { username: req.params.username },
@@ -98,9 +126,7 @@ router.get("/blogs/:id", async (req, res) => {
 //     });
 // });
 
-router.get("/signin", (req, res) => {
-    res.render("sign-in");
-});
+
 
 // router.get("/comments/:commentId", async (req, res) => {
 //     const dbComments = await Comments.findOne({

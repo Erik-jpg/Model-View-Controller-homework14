@@ -1,6 +1,6 @@
 const postTitleElement = document.getElementById('postTitle');
 const postTextElement = document.getElementById('postText');
-const postBtn = document.getElementById('postBtn');
+const postBlogBtn = document.getElementById('postBlogBtn');
 
 const makeAPost = async (title, content, userId) => {
     const body = {title: title, content: content, userId: userId };
@@ -40,7 +40,7 @@ const logout = async () => {
     }
 };
 document.querySelector('#logout').addEventListener('click', logout);
-
+document.querySelector('#postBlogBtn').addEventListener('click', makeAPost);
 
 // const 
 // const validateUser = async (username) => {

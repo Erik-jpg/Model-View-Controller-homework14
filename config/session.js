@@ -1,6 +1,6 @@
 const withCookie = (req, res, next) => {
     if(!req.sessions.loggedIn) {
-        res.redirect('/login');
+        res.redirect('/signin');
     }else {
         next();
     }

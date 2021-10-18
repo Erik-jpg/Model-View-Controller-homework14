@@ -1,10 +1,10 @@
 [
     {
-        "username": "me",
+        "email": "me",
         "password": "MeMe"
     },
     {
-        "username": "Memeasaurus.Rex",
+        "email": "Memeasaurus.Rex",
         "password": "Roooaar!"
     }
 ]

@@ -1,21 +1,26 @@
 const router = require('express').Router();
-const Comments = require('../../models/Comments');
-const Users = require('../../models/Users');
+
+// const Users = require('../../models/Users');
 const Blogs = require('../../models/Blogs');
 const withCookie = require('../../config/session')
 
-router.post('/:username', withCookie, async (req, res) => {
+// document.querySelector('postBlogBtn');
+computeBlogsPost = async () => {
+postBlogBtn.addEventListener('click', () =>{
+router.post('/', withCookie, async (req, res) => {
     try {
         const newBlog = await Blogs.crate({
             ...req.body,
-            userId: req.params.userId,
+            userId: req.sessions.userId,
         });
         res.status(200).json(newBlog);
     } catch (error) {
+        console.log('made it into post route ', error);
         res.status(400).json(error);
     }
 });
-
+});
+}
 
 // router.get('/:username', withCookie, async (req, res) => {
 //     try {

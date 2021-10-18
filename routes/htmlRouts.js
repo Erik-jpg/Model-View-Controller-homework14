@@ -31,11 +31,10 @@ router.get('/dashboard', async (req, res) => {
             blog.get({ plain: true })
         )
         console.log(blogs);
-        res.render('home-page', {
+        res.render('dashboard', {
             blogs,
             loggedIn: req.session.loggedIn
         })
-        res.render('dashboard')
     } catch (error) {
         console.log(error);
     }

@@ -7,7 +7,7 @@ const exphbs = require('express-handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // const { strict } = require('assert');
 const path = require('path');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 // const {urlencoded} = require('body-parser');
 
@@ -42,8 +42,6 @@ app.use(router);
 
 
 sequelize.sync({ force: false })
-  .then(() => {
-    app.listen(PORT, () => console.log(`Listening on ${PORT}`));
-  });
+  .then(app.listen(PORT, () => console.log(`Listening on ${PORT}`)));
 
   

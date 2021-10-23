@@ -14,7 +14,7 @@ const app = express();
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    maxAge: 3600,
+    maxAge: 360000,
     httpOnly: true,
     secure: false,
     sameSite: 'lax',

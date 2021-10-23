@@ -5,8 +5,7 @@ const Blogs = require('../../models/Blogs');
 const withCookie = require('../../config/session')
 
 // document.querySelector('postBlogBtn');
-computeBlogsPost = async () => {
-postBlogBtn.addEventListener('click', () =>{
+
 router.post('/', withCookie, async (req, res) => {
     try {
         const newBlog = await Blogs.crate({
@@ -19,8 +18,7 @@ router.post('/', withCookie, async (req, res) => {
         res.status(400).json(error);
     }
 });
-});
-}
+
 
 // router.get('/:username', withCookie, async (req, res) => {
 //     try {

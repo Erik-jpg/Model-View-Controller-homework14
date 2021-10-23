@@ -1,6 +1,4 @@
 const Users = require('../../models/Users');
-// const express = require('express');
-// const router = express.Router();
 const router = require('express').Router();
 
 // create user
@@ -24,7 +22,7 @@ router.post('/', async (req, res) => {
 router.post('/signin', async (req, res) => {
     try {
     const userData = await Users.findOne({ where: { email: req.body.email } });
-    
+    console.log(userData)
     if(!userData) {
         console.log("line 26 users.js ", error);
         res.status(400).json({ message: 'Please try again, email or password is incorrect.' });
@@ -47,13 +45,13 @@ router.post('/signin', async (req, res) => {
     }
 });
 
-router.post('/logout', async (req, res) => {
+router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end();
         });
     }else {
-        res.status(404).end();
+        res.status(console.log('error is ', error)).end();
     }
 });
 

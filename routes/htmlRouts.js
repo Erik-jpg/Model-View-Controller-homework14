@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
         const blogs = blogsData.map((blog) =>
             blog.get({ plain: true })
         )
-        console.log(blogs);
+        console.log(blogs[0].comments);
         res.render('home-page', {
             blogs,
             loggedIn: req.session.loggedIn
@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 
 router.get('/dashboard', async (req, res) => {
     try {
-        // query all blogs by           it is either userId
+        // query all blogs by...           would I add this constant userId userId= id?
         const blogsData = await Blogs.findAll({ where: {userId: req.session.userId}})
         const blogs = blogsData.map((blog) =>
             blog.get({ plain: true })
@@ -42,7 +42,7 @@ router.get('/dashboard', async (req, res) => {
 
 router.get("/posted/:id", async (req, res) => {
     try {
-        const blogsData = await Blogs.findByPk(req.params.id, {
+        const blogsData = await Blogs.findByPk(req.params.userId, {
             include: [{
                 model: Users,
                 attributes: ['name'],
@@ -62,8 +62,9 @@ router.get("/posted/:id", async (req, res) => {
 
     router.get('/posted', async (req, res) => {
         try {
-            res.render('posted')
+            
             const commentsData = await Comments.findAll({ where: {userId: req.session.userId}});
+            res.render('posted')
 
         } catch (error) {
             console.log(error);

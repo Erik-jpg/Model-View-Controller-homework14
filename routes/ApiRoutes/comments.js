@@ -9,6 +9,7 @@ router.post('/posted', withCookie, async (req, res) => {
         const comment = await Comments.create({
             ...req.body,
             commentId: req.params.userId,
+            // Would commentsSql = "INSERT INTO comments ("Here is the comment") Values ('userId', 'email')"; Work?
         });
         res.status(200).json(newComment);
     }catch (error) { 

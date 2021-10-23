@@ -8,7 +8,7 @@
                 <a href="/blogs/{{blog.id}}">{{blog.title}}</a>
                 <ul>
                     {{#each blog.comments as |comment|}}
-                    <li><a href="/Comments/{{comment.id}}">{{comment.comment}}</a></li>
+                    <li><a href="/Comments/{{comment.id}}">{{comment.content}}</a></li>
                     {{/each}}
                 </ul>
             </li>

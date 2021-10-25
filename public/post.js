@@ -4,7 +4,6 @@
 
 
 const commentsText = document.getElementById('commentText');
-// const commentBtn = document.getElementById('commentBtn');
 const postBlogBtn = document.getElementById('postBlogBtn');
 
 
@@ -24,7 +23,7 @@ const computeBlogs = async (event) => {
     if (response.ok) {
         location.reload();
     } else {
-        console.log(response);
+        res.status(500);
     }
 }
 
@@ -49,13 +48,5 @@ const computeComments = async () => {
         alert('Please login to leave a comment to be able to respond.');
     }
 };
-
-// const postBlogBtn = document.querySelector('#postBlogBtn');
-
-
-
-// commentBtn.addEventListener('click', () => {
-//     computeComments();
-// });
 
 postBlogBtn.addEventListener('click', computeBlogs);

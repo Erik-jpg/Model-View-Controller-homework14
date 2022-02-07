@@ -1,7 +1,45 @@
 
 {{#if loggedIn}}
-<div class="row" id="posted-blogs">
-    <div class="col-md-6 jumbotron" id='view-past-blogs'>
+<div class="columns is-centered">
+    <div class="column is-half">
+        <div class="box">
+            <p><strong>{{post.title}}</strong></p>
+            <p>{{post.content}}</p>
+            <p>posted by:{{post.user.username}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="columns is-centered">
+    <div class="column is-half">
+        {{#each post.comments}}
+        <div class="box">
+            <p>{{this.content}}</p>
+        </div>
+        {{each}}
+    </div>
+</div>
+
+<div class="columns">
+    <div class="columns is-half">
+        <div class="box">
+            <textarea
+            id="comment-text"
+            class="textarea"
+            placeholder="comment">
+            </textarea>
+            <button
+            class="button is-dark"
+            id="comment-btn"
+            data-value="{{post.id}}">Post Comment</button>
+        </div>
+    </div>
+</div>
+{{else}}
+<a href="/">Login</a>
+{{/if}}
+<script src="../js/post.js"></script>
+    {{!-- <div class="col-md-6 jumbotron" id='view-past-blogs'>
         <h2 class="text-center text-weight-bold" id="display-blog-titles">{{blogs.title}}</h2>
         <p>{{blogs.content}}</p>
         <h4 class="text-center text-weight-bold" id="display-userName">posted by {{post.user}}</h4>
@@ -32,4 +70,4 @@
 {{else}}
 <a href="/signin">login</a>
 {{/if}}
-<script src="./index.js"></script>
+<script src="./index.js"></script> --}}

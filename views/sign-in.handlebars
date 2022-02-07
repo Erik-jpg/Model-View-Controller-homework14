@@ -1,11 +1,4 @@
 {{!-- <div class="row">
-  <div class="text-center">
-    <button class="bi bi-key-fill" id="submit">Login</button>
-    <button class="bi bi-keyboard-fill" id="create-account">Create an account</button>
-  </div>
-</div> --}}
-
-<div class="row">
   <div class="col-md-6">
     <h2>Login</h2>
 
@@ -26,12 +19,12 @@
   <div class="col-md-6">
     <h2>Signup</h2>
 
-    <form class="form signup-form">
+    <form class="form signup-form"> --}}
       {{!-- <div class="form-group">
         <label for="name-signup">name:</label>
         <input class="form-input" type="text" id="name-signup" />
       </div> --}}
-      <div class="form-group">
+      {{!-- <div class="form-group">
         <label for="email-signup">email:</label>
         <input class="form-input" type="text" id="email-signup" />
       </div>
@@ -48,4 +41,13 @@
 
 <script src="/displayLogIn.js"></script>
 <script src="/displayLogin.js"></script>
-<script src="/index.js"></script>
+<script src="/index.js"></script> --}}
+
+<div class="columns is-centered">
+  <div class="column is-half">
+    <button class="button is-dark" id="choose-login">login</button>
+    <button class="button is-dark" id="choose-create">Create Account</button>
+  </div>
+</div>
+
+<script type="module" src="../js/index.js"></script>
